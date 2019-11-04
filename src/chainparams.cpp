@@ -48,8 +48,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Trump reelu. Temps pour une poutine.";
-    const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+    const char* pszTimestamp = "Trump reelu. C'est l'heure d'une poutine.";
+    const CScript genesisOutputScript = CScript() << ParseHex("b8b22cd191bcfa67b1b5ce5ec6ad2d9209f9e595db17a8dd89bc31e86677ac5db76a0ee94861665380bfe0f20b22aa9f17146a8829fcdbeb7ae37f13b873a62549") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -80,7 +80,7 @@ public:
         consensus.BIP34Hash = uint256S("fa09d204a83a768ed5a7c8d441fa62f2043abf420cff1226c7b4329aeb9d51cf");
         consensus.BIP65Height = 918684; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
         consensus.BIP66Height = 811879; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
-        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
+        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
         consensus.nPowTargetSpacing = 2.5 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -116,13 +116,13 @@ public:
         pchMessageStart[1] = 0xc9;
         pchMessageStart[2] = 0x37;
         pchMessageStart[3] = 0x54;
-        nDefaultPort = 31961;
+        nDefaultPort = 41979;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1571961790, 2086008438, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1572879445, 2085238511, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0xc90b6176db507a4b760f314fcd0291da45f11901c533929c67d8de2a090d49d1"));
-        assert(genesis.hashMerkleRoot == uint256S("0xe378e0e012ddc17bcfab4d86e4be83be705ec7d1b0c640986b99a9a6db5822dc"));
+        assert(consensus.hashGenesisBlock == uint256S("0x81e44c62b9226e8ed3b7e3768cac1a5bd16e377852a98a9d94999c8d79a2d50d"));
+        assert(genesis.hashMerkleRoot == uint256S("0xd328b58c22dc1542bb83d274dab3c0417156704770e631994c81127f55cfe04a"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -135,12 +135,12 @@ public:
         // vSeeds.emplace_back("dnsseed.poutinecoinpool.org");
         // vSeeds.emplace_back("dnsseed.koin-project.com");
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,78);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,80);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,78);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,50);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,178);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0xCB, 0x88, 0xB2, 0x1E};
-        base58Prefixes[EXT_SECRET_KEY] = {0xCB, 0x88, 0xAD, 0xE4};
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,241);
+        base58Prefixes[EXT_PUBLIC_KEY] = {0xAB, 0xCB, 0xB0, 0x1E};
+        base58Prefixes[EXT_SECRET_KEY] = {0xAB, 0xCB, 0xAD, 0xE4};
 
         bech32_hrp = "ptn";
 
@@ -152,13 +152,13 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0xc90b6176db507a4b760f314fcd0291da45f11901c533929c67d8de2a090d49d1")}
+                {  0, uint256S("0x81e44c62b9226e8ed3b7e3768cac1a5bd16e377852a98a9d94999c8d79a2d50d")}
             }
         };
 
         chainTxData = ChainTxData{
             // Data from rpc: getchaintxstats 4096 a601455787cb65ffc325dda4751a99cf01d1567799ec4b04f45bb05f9ef0cbde
-            /* nTime    */ 1571961790,
+            /* nTime    */ 1572879445,
             /* nTxCount */ 0,
             /* dTxRate  */ 0
         };
@@ -212,7 +212,7 @@ public:
         pchMessageStart[1] = 0xd2;
         pchMessageStart[2] = 0xc8;
         pchMessageStart[3] = 0xf1;
-        nDefaultPort = 19335;
+        nDefaultPort = 51979;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1571961790, 2086008438, 0x1e0ffff0, 1, 50 * COIN);
@@ -227,12 +227,12 @@ public:
         // vSeeds.emplace_back("seed-b.poutinecoin.loshan.co.uk");
         // vSeeds.emplace_back("dnsseed-testnet.thrasher.io");
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
-        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,112);
+        base58Prefixes[EXT_PUBLIC_KEY] = {0x80, 0x36, 0x87, 0xCF};
+        base58Prefixes[EXT_SECRET_KEY] = {0x80, 0x36, 0x83, 0x94};
 
         bech32_hrp = "tltc";
 
@@ -300,7 +300,7 @@ public:
         pchMessageStart[1] = 0xbf;
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
-        nDefaultPort = 19444;
+        nDefaultPort = 61979;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
@@ -313,7 +313,7 @@ public:
 
         fDefaultConsistencyChecks = true;
         fRequireStandard = false;
-        fMineBlocksOnDemand = true; 
+        fMineBlocksOnDemand = true;
 
         checkpointData = {
             {
@@ -327,12 +327,12 @@ public:
             0
         };
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
         base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,58);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
-        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,112);
+        base58Prefixes[EXT_PUBLIC_KEY] = {0x80, 0x36, 0x87, 0xCF};
+        base58Prefixes[EXT_SECRET_KEY] = {0x80, 0x36, 0x83, 0x94};
 
         bech32_hrp = "rltc";
 
